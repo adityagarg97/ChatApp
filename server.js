@@ -6,6 +6,7 @@ const app=express()
 const server=http.createServer(app)
 const io=socketio(server)
 let userSockets={}
+const port=process.env.PORT || 1111
 app.use("/",express.static(path.join(__dirname,"frontend")))
 io.on("connection",(socket)=>{
     socket.emit("connected")
@@ -23,6 +24,6 @@ io.on("connection",(socket)=>{
         }
     })
 })
-server.listen("1111",()=>{
-    console.log("Server started at: http://localhost:1111/")
+server.listen(port,()=>{
+    console.log("Server started")
 })
