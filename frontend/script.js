@@ -50,7 +50,7 @@ const socket=io()
      socket.on("user_connected",(users)=>{
          userlist.empty()
          for (key in users){
-             userlist.append($("<li class='list-group-item list-group-item list-group-item-action m-1 text-center' style='color: darkviolet;background-color: orange'>"+ key+"</li>"))
+             userlist.append($("<li class='list-group-item list-group-item list-group-item-action text-center' style='color: darkviolet;background-color: orange'>"+ key+"</li>"))
          }
      })
      socket.on("recv_msg",function(data){
@@ -74,7 +74,7 @@ const socket=io()
          users=dataobj.data
          user=dataobj.user
          for (key in users){
-             userlist.append($("<li class='list-group-item list-group-item list-group-item-action m-1 text-center' style='color: darkviolet;background-color: orange'>"+ key+"</li>"))
+             userlist.append($("<li class='list-group-item list-group-item list-group-item-action text-center' style='color: darkviolet;background-color: orange'>"+ key+"</li>"))
          }
          window.alert(user+" disconnected")
      })

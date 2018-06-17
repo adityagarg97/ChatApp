@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script defer src="/__/firebase/5.0.4/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.0.4/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.0.4/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.0.4/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.0.4/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,7 +18,7 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
             integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
             crossorigin="anonymous"></script>
@@ -62,7 +70,7 @@
     <div class="row justify-content-center align-items-center">
         <div class="card form-group p-3 m-3 col-8 col-xs-12 mt-5" id="login-div" style="margin: auto; background-color: transparent">
             <div class="card-title text-center block" style="color: whitesmoke"><h1>Username</h1></div>
-            <input class="p-3 m-5 col-xs-12" type="text" id="user-Val" placeholder="Enter username" autofocus style="opacity: .75">
+            <input class="p-3 m-3 col-xs-12" type="text" id="user-Val" placeholder="Enter username" autofocus style="opacity: .75">
             <button class="btn btn-danger m-2 p-3 block col-xs-12" id="user-btn">Login</button>
         </div>
     </div>
