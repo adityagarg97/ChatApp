@@ -17,47 +17,76 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
     <title>Document</title>
     <style>
+        h2{
+            color: white;
+        }
         body {
-            background-color: lightskyblue;
+            background-color: black;
+            font-family: cursive,"Comic Sans MS", sans-serif;
+
+        }
+        #particles-js{
+            position: absolute;
+            height: 96%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: lightblue;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: darkcyan;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: royalblue;
         }
     </style>
 </head>
 <body>
-<h1 class="display-1 text-center">Chat App</h1>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col">
-
-        </div>
-        <div class="card p-3 m-2 bg-success col-6" id="login-div">
-            <div class="card-title text-center"><h3>Username</h3></div>
-            <br>
-            <input class="form-control m-2 p-3 block" type="text" id="user-Val" placeholder="Enter username">
-            <button class="btn btn-primary m-2 p-3 block" id="user-btn">Login</button>
-        </div>
-        <div class="col">
-
+<div id="particles-js">
+</div>
+<div class="container">
+    <div class="row m-3 justify-content-center">
+        <h2 class="display-3 text-center">Chat App</h2>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="card form-group p-3 m-3 col-8 col-xs-12 mt-5" id="login-div" style="margin: auto; background-color: transparent">
+            <div class="card-title text-center block" style="color: whitesmoke"><h1>Username</h1></div>
+            <input class="p-3 m-5 col-xs-12" type="text" id="user-Val" placeholder="Enter username" autofocus style="opacity: .75">
+            <button class="btn btn-danger m-2 p-3 block col-xs-12" id="user-btn">Login</button>
         </div>
     </div>
 
-    <div class="card p-3 m-2 bg-light" id="chat-div" style="display:none">
-        <div class="row">
+    <div class="card p-3 m-2 mt-5" id="chat-div" style="display:none; background-color: transparent; color: white">
+        <div class="row justify-content-center">
             <div class="col-4">
-                <div class="card-title text-center"><h6>Users Online</h6></div>
-                <ul id="usr-list" class="list-group"></ul>
+                <div class="card-title text-center mb-5"><h4>Users Online</h4></div>
+                <div class="container" id="userList" style="max-height: 300px;overflow: auto">
+                    <ul id="usr-list" class="list-group"></ul>
+                </div>
+
             </div>
             <div class="col-8">
-                <div class="card-title text-center"><h3>Message</h3></div>
-                <ul id="msg-list" class="list-group row-3"></ul>
-                <input class="text-center form-control m-2 p-3" type="text" id="chat-Val" placeholder="Enter Message">
-                <button class="btn btn-primary form-control m-2 p-3" id="chat-btn">Send</button>
+                <div class="card-title text-center"><h4>Message</h4></div>
+                <div id="messagesList" class="container"  style="max-height:230px;overflow: auto">
+                    <ul id="msg-list" class="list-group"></ul>
+                </div>
+                <input class="text-center form-control mt-4 m-2 p-3" type="text" id="chat-Val" placeholder="Enter Message" autofocus style="opacity: .75">
+                <button class="btn btn-danger form-control m-2 p-3" id="chat-btn">Send</button>
             </div>
         </div>
-
     </div>
 </div>
+
 </body>
 </html>

@@ -23,23 +23,31 @@ io.on("connection", (socket) => {
             }
         }
         if(flag){
-            io.emit("disconnected_user",({data:userSockets,user:user}))
+            for(key in userSockets){
+                io.to(userSockets[key]).emit("disconnected_user",({data:userSockets,user:user}))
+            }
         }
         // console.log(userSockets)
     })
     socket.on("login", (data) => {
-        userSockets[data.user] = socket.id
-        console.log(userSockets)
-        io.emit("user_connected",userSockets)
+        if(userSockets[data.user]){
+            socket.emit("same_user",{message:"Please enter a different Username"})
+        }else{
+            userSockets[data.user] = socket.id
+            console.log(userSockets)
+            socket.emit("success",{success:true})
+            io.emit("user_connected",userSockets)
+        }
     })
 
     socket.on("send_msg", (data) => {
         if (data.message.startsWith("@")) {
             user = data.message.split(":")[0].substr(1)
-            io.to(userSockets[user]).emit("recv_msg", data)
-            io.to(socket.id).emit("recv_msg",data)
+            io.to(userSockets[user]).emit("p_msg", data)
+            io.to(socket.id).emit("my_msgp",data)
         } else {
-            io.emit("recv_msg", data)
+            io.to(socket.id).emit("my_msg",data)
+            socket.broadcast.emit("recv_msg", data)
         }
     })
 })
